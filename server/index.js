@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
 const authRoutes = require('./routes/auth.routes');
+const todoRoutes = require('./routes/todo.routes');
 
 const app = express();
 dotenv.config();
@@ -10,6 +11,7 @@ dotenv.config();
 app.use(cors());
 app.use(express.json());
 app.use('/auth', authRoutes);
+app.use('/todo', todoRoutes);
 
 const start = async () => {
   try {

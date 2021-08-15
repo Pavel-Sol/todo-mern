@@ -5,9 +5,7 @@ import {addTodo} from './../srore/actions/todoActions'
 
 
 const Main = () => {
-   const userId = useSelector(state => state.authReducer.currentUser.id)
-   // console.log(userId)
-
+   const currentUser = useSelector(state => state.authReducer.currentUser)
    const [textTodo, setTextTodo] = useState('')
    const dispatch = useDispatch()
 
@@ -15,7 +13,7 @@ const Main = () => {
       e.preventDefault()
       dispatch(addTodo({
          text: textTodo,
-         userId
+         userId: currentUser.id
       }))
    }
 

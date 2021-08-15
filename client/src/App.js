@@ -8,9 +8,6 @@ import Navbar from './components/Navbar';
 import { auth } from './srore/actions/authActions';
 
 function App() {
-  // const currentUser = useSelector((state) => state.authReducer.currentUser);
-  // console.log(currentUser);
-
   const dispatch = useDispatch();
 
   useEffect(() => {

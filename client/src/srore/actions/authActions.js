@@ -24,10 +24,9 @@ export const login = (email, password) => {
         password,
       });
 
-      dispatch(setUserAC(response.data.user));
+      // console.log(response.data.currentUser);
+      dispatch(setUserAC(response.data.currentUser));
       localStorage.setItem('token', response.data.token);
-
-      // console.log(response.data.user);
     } catch (error) {
       console.log(error.message);
     }
