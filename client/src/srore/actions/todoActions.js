@@ -12,3 +12,18 @@ export const addTodo = (todo) => {
     }
   };
 };
+
+export const getTodo = (userId) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get('http://localhost:5000/todo/', { params: { userId } });
+
+      const todos = response.data;
+      // console.log(todos);
+
+      dispatch(getTodosAC(todos));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

@@ -17,3 +17,15 @@ module.exports.addTodo = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+module.exports.getTodo = async (req, res) => {
+  try {
+    const { userId } = req.query;
+
+    const todos = await Todo.find({ owner: userId });
+    res.json(todos);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: error.message });
+  }
+};
