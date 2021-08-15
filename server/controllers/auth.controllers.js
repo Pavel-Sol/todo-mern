@@ -68,3 +68,24 @@ module.exports.signIn = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+//------------авторизация контроллер------------
+module.exports.auth = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.user.id });
+
+    const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, { expiresIn: '2h' });
+
+    res.json({
+      token,
+      currentUser: {
+        id: user.id,
+        email: user.email,
+        todos: user.todos,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: error.message });
+  }
+};

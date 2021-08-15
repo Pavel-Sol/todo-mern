@@ -13,9 +13,9 @@ function App() {
 
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(auth());
-  // }, []);
+  useEffect(() => {
+    dispatch(auth());
+  }, []);
 
   return (
     <BrowserRouter>
