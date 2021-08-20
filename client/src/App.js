@@ -6,13 +6,12 @@ import { useDispatch } from 'react-redux';
 import Router from './components/Router';
 import Navbar from './components/Navbar/Navbar';
 import { auth } from './srore/actions/authActions';
-import { getTodo } from './srore/actions/todoActions';
+// import { getTodo } from './srore/actions/todoActions';
 
 function App() {
   const currentUser = useSelector((state) => state.authReducer.currentUser);
-
-  const todos = useSelector((state) => state.todoReducer.todos);
-  console.log(todos);
+  // const todos = useSelector((state) => state.todoReducer.todos);
+  // console.log(todos);
 
   const dispatch = useDispatch();
 
@@ -20,9 +19,9 @@ function App() {
     dispatch(auth());
   }, [dispatch]);
 
-  useEffect(() => {
-    dispatch(getTodo(currentUser.id));
-  }, [currentUser, dispatch]);
+  // useEffect(() => {
+  //   dispatch(getTodo(currentUser.id));
+  // }, [currentUser, dispatch]);
 
   return (
     <BrowserRouter>
