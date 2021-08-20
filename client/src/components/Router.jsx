@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import {Switch, Redirect, Route} from 'react-router-dom'
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import SignIn from './SignIn/SignIn'
+import SignUp from './SignUp/SignUp'
 import Main from './Main'
 
 

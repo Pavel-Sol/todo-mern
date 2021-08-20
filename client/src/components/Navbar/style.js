@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
   },
   button: {
-    border: '1px solid #fff',
+    border: '2px solid #fff',
     color: '#fff',
     margin: '3px',
   },

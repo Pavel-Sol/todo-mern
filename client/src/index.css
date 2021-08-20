@@ -24,34 +24,25 @@ code {
   margin: 0px auto;
   text-align: center;
 }
-.navbar {
+/* .navbar {
   width: 100%;
   background-color: rgb(179, 247, 171);
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-}
+} */
 
-.navbar-content {
+/* .navbar-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
-}
+} */
 
-.logo {
-  width: 60px;
-  height: 60px;
-}
-
-.logo img {
-  width: 100%;
-}
-
-form {
+/* form {
   display: flex;
   flex-direction: column;
   max-width: 300px;
   margin: 0px auto;
-}
+} */
 
 input {
   margin: 10px 0px;
