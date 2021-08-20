@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 
 import {addTodo, getTodo} from '../../srore/actions/todoActions'
 import{useStyles} from './style'
+import Todo from './../Todo/Todo'
 
 
 
@@ -50,22 +51,15 @@ const Main = () => {
                добавить
             </Button>
          </form>
-         <ul>
+         <div>
             {
                todos
                ? todos.map(item => {
-                  return <li key={item._id}>
-                     <p>
-                        {item.text}
-                     </p>
-                     <button>удалить</button>
-                     <input type="checkbox" defaultChecked={item.completed} name="" id="" />
-                     <hr />
-                  </li>
+                  return <Todo key={item._id} todo={item}/>
                })
                : <p>нет туду</p>
             }
-         </ul>
+         </div>
       </Container>
    )
 }
