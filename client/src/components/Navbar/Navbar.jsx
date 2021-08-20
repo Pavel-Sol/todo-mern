@@ -20,7 +20,7 @@ const Navbar = () => {
 
 
    return (
-      <AppBar position="static">
+      <AppBar position="fixed">
       <Toolbar className={classes.toolbar}>
          <Typography variant="h6" className={classes.title}>
             Todo-mern
