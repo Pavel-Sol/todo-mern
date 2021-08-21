@@ -29,3 +29,20 @@ module.exports.getTodo = async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 };
+
+module.exports.deleteTodo = async (req, res) => {
+  try {
+    const { todoId } = req.query;
+
+    const detetedTodo = await Todo.findOneAndDelete({ _id: todoId });
+
+    if (detetedTodo) {
+      res.status(200).json({ detetedTodo });
+    }
+
+    // console.log(detetedTodo);
+  } catch (error) {
+    console.log(error);
+    res.status(400).json({ message: error.message });
+  }
+};
