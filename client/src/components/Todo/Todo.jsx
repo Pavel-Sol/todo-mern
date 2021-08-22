@@ -29,7 +29,7 @@ const Todo = ({todo}) => {
          </Typography>
          <div className={classes.btnGroup}>
          <Checkbox
-            defaultChecked={todo.completed}
+            checked={todo.completed}
             onChange={(e) => handleComplete(e, todo._id)}
             color="primary"
          />

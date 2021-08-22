@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getTodosAC, deleteTodoAC } from './../reducers/todoReducer';
+import { getTodosAC, deleteTodoAC, updateTodoAC } from './../reducers/todoReducer';
 
 export const addTodo = (todo) => {
   return async (dispatch) => {
@@ -41,6 +41,8 @@ export const completeTodo = (checked, id) => {
       });
 
       console.log(response.data.todo);
+
+      dispatch(updateTodoAC(response.data.todo));
     } catch (error) {
       console.log(error);
     }
