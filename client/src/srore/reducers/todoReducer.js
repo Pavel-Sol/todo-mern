@@ -25,7 +25,6 @@ export const getTodosAC = (todos) => {
 };
 
 export const deleteTodoAC = (deletedTodo) => {
-  // debugger;
   return {
     type: DELETE_TODOS,
     payload: deletedTodo,
