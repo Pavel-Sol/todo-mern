@@ -34,10 +34,10 @@ module.exports.deleteTodo = async (req, res) => {
   try {
     const { todoId } = req.query;
 
-    const detetedTodo = await Todo.findOneAndDelete({ _id: todoId });
+    const deletedTodo = await Todo.findOneAndDelete({ _id: todoId });
 
-    if (detetedTodo) {
-      res.status(200).json({ detetedTodo });
+    if (deletedTodo) {
+      res.status(200).json({ deletedTodo });
     }
 
     // console.log(detetedTodo);
