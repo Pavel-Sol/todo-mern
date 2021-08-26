@@ -13,7 +13,7 @@ const Main = () => {
    const classes = useStyles()
    const currentUser = useSelector((state) => state.authReducer.currentUser);
    const todos = useSelector(state => state.todoReducer.todos)
-   console.log(todos)
+   // console.log(todos)
 
    
    const [textTodo, setTextTodo] = useState('')
