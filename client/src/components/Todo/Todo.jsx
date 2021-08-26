@@ -1,13 +1,13 @@
-import { Button, Card, Checkbox, Divider, TextField, Typography } from '@material-ui/core'
+import { Button, Card, Checkbox, TextField, Typography } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import {useState} from 'react'
 
-import {deleteTodo, completeTodo, updateTodo} from './../../srore/actions/todoActions'
+import {deleteTodo, updateTodo} from './../../srore/actions/todoActions'
 import{useStyles} from './style'
 
 const Todo = ({todo}) => {
-   console.log(todo)
+   // console.log(todo)
    const classes = useStyles()
    const dispatch = useDispatch()
 
@@ -19,8 +19,9 @@ const Todo = ({todo}) => {
       dispatch(deleteTodo(id))
    }
 
-   const handleComplete = (e, id) => {
-      dispatch(completeTodo(e.target.checked, id))
+   const handleComplete = (e) => {
+      todo.completed = e.target.checked
+      dispatch(updateTodo(todo)) 
    }
 
 
@@ -76,7 +77,7 @@ const Todo = ({todo}) => {
                >
                   <Checkbox
                      checked={todo.completed}
-                     onChange={(e) => handleComplete(e, todo._id)}
+                     onChange={(e) => handleComplete(e)}
                      color="primary"
                   />
                   <DeleteIcon

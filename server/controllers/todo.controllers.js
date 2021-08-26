@@ -48,24 +48,6 @@ module.exports.deleteTodo = async (req, res) => {
   }
 };
 
-module.exports.completeTodo = async (req, res) => {
-  try {
-    const { todoId, checked } = req.body;
-    // console.log(todoId, checked);
-
-    const todo = await Todo.findOne({ _id: todoId });
-    todo.completed = checked;
-    await todo.save();
-
-    res.status(200).json({ todo });
-  } catch (error) {
-    console.log(error);
-    res.status(400).json({ message: error.message });
-  }
-};
-
-// --------------------------------- test
-
 module.exports.updateTodo = async (req, res) => {
   try {
     const todo = await Todo.findById(req.body._id);

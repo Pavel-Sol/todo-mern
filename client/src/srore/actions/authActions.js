@@ -35,8 +35,7 @@ export const login = (email, password) => {
 
 export const auth = () => {
   return async (dispatch) => {
-    const token = localStorage.getItem('token');
-
+    // const token = localStorage.getItem('token');
     // console.log(token);
 
     try {
