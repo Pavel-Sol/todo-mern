@@ -3,11 +3,11 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import {useState} from 'react'
 
-import {deleteTodo, completeTodo} from './../../srore/actions/todoActions'
+import {deleteTodo, completeTodo, updateTodo} from './../../srore/actions/todoActions'
 import{useStyles} from './style'
 
 const Todo = ({todo}) => {
-   // console.log(todo)
+   console.log(todo)
    const classes = useStyles()
    const dispatch = useDispatch()
 
@@ -28,9 +28,18 @@ const Todo = ({todo}) => {
       setIsEdit(true)
    }
    
-   const handleSave = (id) => {
-      console.log(id)
-      console.log(inputText)
+   const handleSave = (e) => {
+      e.stopPropagation()
+
+      if (todo.text === inputText) {
+         setIsEdit(false)
+         return
+      }
+
+      todo.text = inputText 
+      dispatch(updateTodo(todo)) 
+      setIsEdit(false) 
+      
    }
 
    return (
@@ -51,7 +60,7 @@ const Todo = ({todo}) => {
                />
 
                <Button 
-                  onClick={() => handleSave(todo._id)}
+                  onClick={(e) => handleSave(e)}
                   className={classes.btnSave}
                   variant="contained" color="primary" size='small'>
                      сохранить

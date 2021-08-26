@@ -64,3 +64,19 @@ export const getTodo = (userId) => {
     }
   };
 };
+
+// ---------------------------------------
+
+export const updateTodo = (todo) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.put('http://localhost:5000/todo/update', todo);
+
+      // console.log(response.data.updatedTodo);
+
+      dispatch(updateTodoAC(response.data.updatedTodo));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

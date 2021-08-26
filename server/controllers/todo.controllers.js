@@ -1,3 +1,4 @@
+const { Error } = require('mongoose');
 const Todo = require('./../models/Todo');
 
 module.exports.addTodo = async (req, res) => {
@@ -59,6 +60,21 @@ module.exports.completeTodo = async (req, res) => {
     res.status(200).json({ todo });
   } catch (error) {
     console.log(error);
+    res.status(400).json({ message: error.message });
+  }
+};
+
+// --------------------------------- test
+
+module.exports.updateTodo = async (req, res) => {
+  try {
+    const todo = await Todo.findById(req.body._id);
+
+    await todo.updateOne({ $set: req.body });
+
+    res.status(200).json({ updatedTodo: req.body });
+  } catch (error) {
+    console.log(Error);
     res.status(400).json({ message: error.message });
   }
 };
