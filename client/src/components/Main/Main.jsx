@@ -11,13 +11,10 @@ import Todo from './../Todo/Todo'
 
 
 const Main = () => {
-   console.log('rerender Main or todoList')
    const classes = useStyles()
    const currentUser = useSelector((state) => state.authReducer.currentUser);
    const todos = useSelector(state => state.todoReducer.todos)
-   // console.log(todos)
 
-   
    const [textTodo, setTextTodo] = useState('')
    const dispatch = useDispatch()
 
@@ -31,6 +28,7 @@ const Main = () => {
          text: textTodo,
          userId: currentUser.id
       }))
+      setTextTodo('')
    }
 
    return (

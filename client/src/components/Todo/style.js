@@ -25,4 +25,7 @@ export const useStyles = makeStyles((theme) => ({
     alignSelf: 'center',
     marginLeft: '10px',
   },
+  todoText: {
+    textDecoration: (props) => (props.isCompleted ? 'line-through' : 'none'),
+  },
 }));

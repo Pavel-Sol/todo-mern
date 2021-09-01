@@ -6,9 +6,7 @@ import {login} from '../../srore/actions/authActions'
 import {useStyles} from './style'
 
 const SignIn = () => {
-   // console.log('rerender SignIn')
-
-
+   
    const classes = useStyles()
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
@@ -18,7 +16,8 @@ const SignIn = () => {
    const loginHandler = (e) => {
       e.preventDefault();
       dispatch(login(email, password))
-      // занулить поля
+      setEmail('')
+      setPassword('')
     };
 
 

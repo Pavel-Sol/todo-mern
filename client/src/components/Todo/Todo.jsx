@@ -11,13 +11,10 @@ import{useStyles} from './style'
 
 export default React.memo(
    function Todo ({todo}) {
-      console.log('rerender Todo ' + todo.text)
    
-      // console.log(todo)
-      const classes = useStyles()
+      const classes = useStyles({isCompleted: todo.completed})
       const dispatch = useDispatch()
    
-      
       const [isEdit, setIsEdit] = useState(false)
       const [inputText, setInputText] = useState(todo.text)
    
@@ -75,6 +72,7 @@ export default React.memo(
                </div>
                : <div className={classes.todoContainer}>
                   <Typography 
+                     className={classes.todoText}
                      variant="body2" component="p">
                      {todo.text}
                   </Typography>

@@ -8,7 +8,6 @@ import {useStyles} from './style'
 
 
 const Navbar = () => {
-   console.log('rerender Navbar')
 
    const classes = useStyles()
 

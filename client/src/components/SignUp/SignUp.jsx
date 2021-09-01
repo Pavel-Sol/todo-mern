@@ -1,12 +1,13 @@
 import { Button, Container, TextField, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useState} from 'react';
+import { useHistory } from "react-router";
 
 import {registration} from '../../srore/actions/authActions'
 import {useStyles} from './style'
 
 const SignUp = () => {
-   // console.log('rerender SignUp')
+   const history = useHistory()
    const classes = useStyles()
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
@@ -18,6 +19,7 @@ const SignUp = () => {
       dispatch(registration(email, password))
       setEmail('')
       setPassword('')
+      history.push("/login")
     };
 
 
