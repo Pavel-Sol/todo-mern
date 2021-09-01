@@ -3,6 +3,7 @@ import {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import { useEffect } from 'react';
 
+
 import {addTodo, getTodo} from '../../srore/actions/todoActions'
 import{useStyles} from './style'
 import Todo from './../Todo/Todo'
@@ -10,6 +11,7 @@ import Todo from './../Todo/Todo'
 
 
 const Main = () => {
+   console.log('rerender Main or todoList')
    const classes = useStyles()
    const currentUser = useSelector((state) => state.authReducer.currentUser);
    const todos = useSelector(state => state.todoReducer.todos)

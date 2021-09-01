@@ -6,6 +6,7 @@ import {registration} from '../../srore/actions/authActions'
 import {useStyles} from './style'
 
 const SignUp = () => {
+   // console.log('rerender SignUp')
    const classes = useStyles()
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');

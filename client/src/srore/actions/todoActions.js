@@ -4,7 +4,7 @@ import { getTodosAC, deleteTodoAC, updateTodoAC } from './../reducers/todoReduce
 export const addTodo = (todo) => {
   return async (dispatch) => {
     try {
-      console.log(todo);
+      // console.log(todo);
 
       const response = await axios.post('http://localhost:5000/todo/add', todo);
       dispatch(getTodo(todo.userId));

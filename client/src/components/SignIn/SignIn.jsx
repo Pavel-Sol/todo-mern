@@ -6,6 +6,9 @@ import {login} from '../../srore/actions/authActions'
 import {useStyles} from './style'
 
 const SignIn = () => {
+   // console.log('rerender SignIn')
+
+
    const classes = useStyles()
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
@@ -18,18 +21,6 @@ const SignIn = () => {
       // занулить поля
     };
 
-
-
-   // return (
-   //    <div className='container'>
-   //       <h3>Login</h3>
-   //          <form action="" onSubmit={loginHandler}>
-   //             <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder='email' value={email}/>
-   //             <input onChange={(e) => setPassword(e.target.value)} type="text" placeholder='password' value={password}/>
-   //             <button type='submit'>войти</button>
-   //          </form>
-   //    </div>
-   // )
 
    return (
       <Container>

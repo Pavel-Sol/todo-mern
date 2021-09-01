@@ -7,6 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import { auth } from './srore/actions/authActions';
 
 function App() {
+  console.log('rerender App');
   const dispatch = useDispatch();
 
   useEffect(() => {

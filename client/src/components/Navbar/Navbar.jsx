@@ -8,6 +8,8 @@ import {useStyles} from './style'
 
 
 const Navbar = () => {
+   console.log('rerender Navbar')
+
    const classes = useStyles()
 
    const isAuth = useSelector((state) => state.authReducer.isAuth);
