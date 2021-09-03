@@ -1,8 +1,9 @@
 import axios from 'axios';
-import { setUserAC } from './../reducers/authReducer';
+import { setUserAC, showLoaderAC, hideLoaderAC } from './../reducers/authReducer';
 
 export const registration = (email, password) => {
   return async (dispatch) => {
+    dispatch(showLoaderAC());
     try {
       const response = await axios.post('http://localhost:5000/auth/signup', {
         email,
@@ -12,12 +13,15 @@ export const registration = (email, password) => {
       console.log(response.data.message);
     } catch (error) {
       console.log(error);
+    } finally {
+      dispatch(hideLoaderAC());
     }
   };
 };
 
 export const login = (email, password) => {
   return async (dispatch) => {
+    dispatch(showLoaderAC());
     try {
       const response = await axios.post('http://localhost:5000/auth/login', {
         email,
@@ -29,6 +33,8 @@ export const login = (email, password) => {
       localStorage.setItem('token', response.data.token);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      dispatch(hideLoaderAC());
     }
   };
 };
