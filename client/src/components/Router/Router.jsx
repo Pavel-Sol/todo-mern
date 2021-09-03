@@ -1,17 +1,15 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import {Switch, Redirect, Route} from 'react-router-dom'
-import SignIn from './SignIn/SignIn'
-import SignUp from './SignUp/SignUp'
-import Main from './Main/Main'
+import SignIn from '../SignIn/SignIn'
+import SignUp from '../SignUp/SignUp'
+import Main from '../Main/Main'
 
 
 
 
 const Router = () => {
    const isAuth = useSelector(state => state.authReducer.isAuth)
-   // const currentUser = useSelector(state => state.authReducer.currentUser)
-   // console.log(currentUser, isAuth)
    return (
       <React.Fragment>
          {

@@ -41,6 +41,7 @@ export const login = (email, password) => {
 
 export const auth = () => {
   return async (dispatch) => {
+    dispatch(showLoaderAC());
     // const token = localStorage.getItem('token');
     // console.log(token);
 
@@ -55,6 +56,8 @@ export const auth = () => {
       localStorage.setItem('token', response.data.token);
     } catch (error) {
       console.log(error.message);
+    } finally {
+      dispatch(hideLoaderAC());
     }
   };
 };

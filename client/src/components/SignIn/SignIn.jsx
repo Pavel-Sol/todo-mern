@@ -1,4 +1,6 @@
-import { Button, Container, TextField, Typography } from '@material-ui/core';
+import { Button, Container, TextField, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@material-ui/core';
+import {Visibility, VisibilityOff} from '@material-ui/icons';
+
 import { useDispatch } from 'react-redux';
 import { useState} from 'react';
 
@@ -11,7 +13,13 @@ const SignIn = () => {
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
 
+   const [showPassword, setShowPassword] = useState(false)
+
    const dispatch = useDispatch()
+
+   const handleClickShowPassword = () => {
+      setShowPassword(!showPassword);
+    };
 
    const loginHandler = (e) => {
       e.preventDefault();
@@ -36,16 +44,27 @@ const SignIn = () => {
                   type='email'
                   size='small'
                />
-               <TextField
-                  className={classes.input}
-                  onChange={(e) => setPassword(e.target.value)}
-                  id="outlined-basic" 
-                  label="Password" 
-                  variant="outlined" 
-                  value={password}
-                  type='password'
-                  size='small'
-               />
+               <FormControl variant="outlined" size='small' className={classes.input}>
+                  <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                  <OutlinedInput
+                     id="outlined-adornment-password"
+                     type={showPassword ? 'text' : 'password'}
+                     value={password}
+                     onChange={(e) => setPassword(e.target.value)}
+                     endAdornment={
+                     <InputAdornment position="end">
+                        <IconButton
+                           aria-label="toggle password visibility"
+                           onClick={handleClickShowPassword}
+                           edge="end"
+                        >
+                           {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                     </InputAdornment>
+                     }
+                     labelWidth={70}
+                  />
+               </FormControl>
 
                <Button 
                    type='submit'variant="contained" color="primary">
