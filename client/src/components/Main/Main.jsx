@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import { useEffect } from 'react';
 
 
-import {addTodo, getTodo} from '../../srore/actions/todoActions'
+import {addTodo, getTodos} from '../../srore/actions/todoActions'
 import{useStyles} from './style'
 import Todo from './../Todo/Todo'
 
@@ -19,14 +19,15 @@ const Main = () => {
    const dispatch = useDispatch()
 
    useEffect(() => {
-      dispatch(getTodo(currentUser.id));
+      dispatch(getTodos(currentUser.id));
     }, [currentUser, dispatch]);
 
    const handleSubmit = (e) => {
       e.preventDefault()
       dispatch(addTodo({
          text: textTodo,
-         userId: currentUser.id
+         userId: currentUser.id,
+         completed: false
       }))
       setTextTodo('')
    }

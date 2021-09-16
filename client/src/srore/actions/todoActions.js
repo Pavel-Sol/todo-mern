@@ -4,10 +4,9 @@ import { getTodosAC, deleteTodoAC, updateTodoAC } from './../reducers/todoReduce
 export const addTodo = (todo) => {
   return async (dispatch) => {
     try {
-      // console.log(todo);
+      await axios.post('http://localhost:5000/todo/add', todo);
 
-      const response = await axios.post('http://localhost:5000/todo/add', todo);
-      dispatch(getTodo(todo.userId));
+      dispatch(getTodos(todo.userId));
     } catch (error) {
       console.log(error);
     }
@@ -30,14 +29,12 @@ export const deleteTodo = (id) => {
   };
 };
 
-export const getTodo = (userId) => {
-  // console.log(userId);
+export const getTodos = (userId) => {
   return async (dispatch) => {
     try {
       const response = await axios.get('http://localhost:5000/todo/', { params: { userId } });
 
       const todos = response.data;
-      // console.log(todos);
 
       dispatch(getTodosAC(todos.reverse()));
     } catch (error) {

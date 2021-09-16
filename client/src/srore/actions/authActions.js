@@ -28,7 +28,6 @@ export const login = (email, password) => {
         password,
       });
 
-      // console.log(response.data.currentUser);
       dispatch(setUserAC(response.data.currentUser));
       localStorage.setItem('token', response.data.token);
     } catch (error) {
@@ -42,15 +41,11 @@ export const login = (email, password) => {
 export const auth = () => {
   return async (dispatch) => {
     dispatch(showLoaderAC());
-    // const token = localStorage.getItem('token');
-    // console.log(token);
 
     try {
       const response = await axios.get('http://localhost:5000/auth/auth', {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
-
-      // console.log(response.data.currentUser);
 
       dispatch(setUserAC(response.data.currentUser));
       localStorage.setItem('token', response.data.token);

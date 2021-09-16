@@ -40,8 +40,6 @@ module.exports.deleteTodo = async (req, res) => {
     if (deletedTodo) {
       res.status(200).json({ deletedTodo });
     }
-
-    // console.log(detetedTodo);
   } catch (error) {
     console.log(error);
     res.status(400).json({ message: error.message });

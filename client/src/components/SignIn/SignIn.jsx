@@ -1,6 +1,7 @@
-import { Button, Container, TextField, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, IconButton } from '@material-ui/core';
+import { Button, Container, TextField, Typography, 
+         FormControl, InputLabel, OutlinedInput, 
+         InputAdornment, IconButton } from '@material-ui/core';
 import {Visibility, VisibilityOff} from '@material-ui/icons';
-
 import { useDispatch } from 'react-redux';
 import { useState} from 'react';
 
@@ -12,9 +13,7 @@ const SignIn = () => {
    const classes = useStyles()
    const [email, setEmail] = useState('');
    const [password, setPassword] = useState('');
-
    const [showPassword, setShowPassword] = useState(false)
-
    const dispatch = useDispatch()
 
    const handleClickShowPassword = () => {
